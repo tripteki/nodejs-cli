@@ -1,0 +1,26 @@
+#!/usr/bin/env node
+
+"use strict";
+
+const Version = require ("./src/Version");
+const VersionCommand = require ("./src/Console/Commands/VersionCommand");
+const CommunicationCommand = require ("./src/Console/Commands/CommunicationCommand");
+const Env = require ("dotenv");
+const { Command, } = require ("commander");
+
+Env.config ();
+
+const application = new Command ();
+
+(async function () {
+
+    application.
+    name (process.env.NODE_NAME ?? "Command Line Tool").
+    version (new Version ().version ());
+
+    new VersionCommand (application);
+    new CommunicationCommand (application);
+
+    await application.parseAsync (process.argv);
+
+}) ();

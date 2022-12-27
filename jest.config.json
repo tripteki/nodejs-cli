@@ -1,0 +1,20 @@
+{
+    "testEnvironment": "node",
+
+    "roots": [
+
+        "<rootDir>/tests"
+    ],
+
+    "testMatch": [
+
+        "**/?(*.)+(spec|test).jsx?"
+    ],
+
+    "coverageDirectory": "<rootDir>/dists/converage",
+    "collectCoverageFrom": [
+
+        "src/**/*.{js,jsx}",
+        "!**/node_modules/**"
+    ]
+}
